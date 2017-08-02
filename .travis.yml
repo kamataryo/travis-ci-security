@@ -13,6 +13,6 @@ after_success:
   - "echo 'サーバーにアクセスするなどの処理をセキュアに行なっています。'"
   - "echo ### 悪意のある改変！！！！！ ###"
   - "echo $ACCESS_TOKEN"
-  - "X=$ACCESS_TOKEN"
-  - "echo $X"
+  - "[[ $ACCESS_TOKEN == \"[secure]\" ]] && echo 'has been replaced..'"
+  - "[[ $ACCESS_TOKEN != \"[secure]\" ]] && echo 'has an entity!'"
   - "cat ./secret"
