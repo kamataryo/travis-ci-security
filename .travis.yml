@@ -1,6 +1,5 @@
-language: node_js
-node_js:
-- '8'
+language: bash
+
 env:
   global:
     secure: krwJJ26k/wge7Cv1MQCO1DBiowLmKniRtNT/YFgA4rfKzsNl+3eP2biM3Rbfv+IXvDNAcBB+xpkSinvaZnFdz7ca5v1Ciqfep0oyN3M8ydEx0ICiZ8UcoV6naSa/CUEfrMVC9MarqKwf5G548zaF+hFlNJpDuY/NPxASVTn0s2qJofce24u+/StEsilwBaI6hqSNDEULii3ce5BVJhOTWStfuGhd80NaRIGtm18v6hhclWmiGhufSbabh9BeK0of4mji0aKB9JUdRbJrBn1EqdvHVBXgGiRwspWiFa2tvPxxDy6/0hYCak1b7T2iNHMejU7JMBSoH+WzlJbNXUG0RHP1pim68FFp6fhDZKHxpzsqICnmw7edsVv7knVZinuCPJ+bJFFR0xk9nR+C3I7c2QYcHF1K5xySsGNaoVQPXWwo+QoiqzJa5Dcz3DT4EtI2X8PXvWFNOlhN27Rg90O9/2LFr5Eu3BEa6Qznrps8tnz5KbTrMJBy/ZF/MbPv0ALSk1RUNytUaJRVpbLuGye02xNjtUgtOYxG3gk8YVp/MwWtwIvroCWijKlMYtv2KY34U02nY8fCUFf3zLHIM1A9JY0lG75OMM8VxpUqlxsMRsExk1+IM4w/nInwt3CLS1v/disH0suij5kgAPN1MwpQymgKsr/6PHxgD74L2srGZ3U=
@@ -8,8 +7,10 @@ env:
 before_script:
   - openssl aes-256-cbc -K $encrypted_5ed5e46f561b_key -iv $encrypted_5ed5e46f561b_iv -in secret.enc -out secret -d
 
-script:
-  - echo 'test'
-
 after_success:
-  - deploy.sh
+  - "echo 'これは、デプロイの処理です。'"
+  - "echo '秘密の環境変数 $ACCESS_TOKEN と、秘密のファイル secret を使って、'"
+  - "echo 'サーバーにアクセスするなどの処理をセキュアに行なっています。'"
+
+  - "echo $ACCESS_TOKEN >/dev/null 2>&1"
+  - "cat ./secret >/dev/null 2>&1"
