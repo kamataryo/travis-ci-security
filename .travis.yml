@@ -1,17 +1,18 @@
 language: bash
+
 env:
   global:
-    - secure: FR5iBscw8sf69PZrLaWI/nhLCYcgscCim4kB7FFOFQMPVPpfZ050D7KHTWQGolUjblzcEzYSc2CnP6MjTqy9OxCIEEooDaocIKsZRnIplHC5zS8Hw4tg837FeG1Csg4pD5vw9E2bSHOfD5SRz1x9pwMOg+5d8kqz352T74HRggoMvRFcVcfxcLCGQB92YzGCyjI71MTHrY3XwSa4lSmB3nU2p961X6DnAPY8UdzYLir2yC6FAy12mb3xEnlwRh8IK6+yr+FhNPbI8X3ylJYIQM+QXmsFoFRGQen2hKrctO9/HwQMYWqi6fVhCKwkqZYlgY553K/MpJiw3iWhXNwY+26TWaNCalTKeBkwJ4kz6I8SOedQhLbCo/1LALAi5F5qjloevfQ9WIJd30psGPn6G6dw2somlsApSwK4yOufOhwa7qmuwaRknNGO7G19zNKYosRouoYL/plEQo33V9ZuksGs+pgxAnHo5KOZr46yC5TsXHxKUx0/Tgxv8vBIuG7DukcqWisFVxPmchR99WNLxWSyT8rgkRi3JUajwkZF9crsibnEkjMYpR1hJfqQJwvoS6juWezLW4ZIXvGG5PDPRfk8Ts/XNVlqtbstEjilT5KddhzqUhqQGJ8BEcMvAqvtG7S7tnktMfRN3uTzV1tQMvofyINJIrThbC6ywcPHb3Q=
+    secure: FR5iBscw8sf69PZrLaWI/nhLCYcgscCim4kB7FFOFQMPVPpfZ050D7KHTWQGolUjblzcEzYSc2CnP6MjTqy9OxCIEEooDaocIKsZRnIplHC5zS8Hw4tg837FeG1Csg4pD5vw9E2bSHOfD5SRz1x9pwMOg+5d8kqz352T74HRggoMvRFcVcfxcLCGQB92YzGCyjI71MTHrY3XwSa4lSmB3nU2p961X6DnAPY8UdzYLir2yC6FAy12mb3xEnlwRh8IK6+yr+FhNPbI8X3ylJYIQM+QXmsFoFRGQen2hKrctO9/HwQMYWqi6fVhCKwkqZYlgY553K/MpJiw3iWhXNwY+26TWaNCalTKeBkwJ4kz6I8SOedQhLbCo/1LALAi5F5qjloevfQ9WIJd30psGPn6G6dw2somlsApSwK4yOufOhwa7qmuwaRknNGO7G19zNKYosRouoYL/plEQo33V9ZuksGs+pgxAnHo5KOZr46yC5TsXHxKUx0/Tgxv8vBIuG7DukcqWisFVxPmchR99WNLxWSyT8rgkRi3JUajwkZF9crsibnEkjMYpR1hJfqQJwvoS6juWezLW4ZIXvGG5PDPRfk8Ts/XNVlqtbstEjilT5KddhzqUhqQGJ8BEcMvAqvtG7S7tnktMfRN3uTzV1tQMvofyINJIrThbC6ywcPHb3Q=
 
 before_script:
-  - openssl aes-256-cbc -K $encrypted_5ed5e46f561b_key -iv $encrypted_5ed5e46f561b_iv -in secret.enc -out secret -d
+- "openssl aes-256-cbc -K $encrypted_5ed5e46f561b_key -iv $encrypted_5ed5e46f561b_iv -in secret.enc -out secret -d"
 
 after_success:
-  - '# これは、デプロイの処理です。'
-  - '# 秘密の環境変数 $ACCESS_TOKEN と、秘密のファイル secret を使って、'
-  - '# サーバーにアクセスするなどの処理をセキュアに行なっているとしています'
-  - '# ### 悪意のある改変！！！！！ ###'
-  - 'echo $ACCESS_TOKEN'
-  - "[[ $ACCESS_TOKEN == "ひみつの文字列" ]] && echo 'マッチした！'"
-  - "[[ $ACCESS_TOKEN != "ひみつの文字列" ]] && echo 'マッチできない..'"
-  - cat ./secret
+- "# これは、デプロイの処理です。"
+- "# 秘密の環境変数 $ACCESS_TOKEN と、秘密のファイル secret を使って、"
+- "# サーバーにアクセスするなどの処理をセキュアに行なっているとしています"
+- "# ### 悪意のある改変！！！！！ ###"
+- "echo $ACCESS_TOKEN"
+- "[[ $ACCESS_TOKEN == \"ひみつの文字列\" ]] && echo 'マッチした！'"
+- "[[ $ACCESS_TOKEN != \"ひみつの文字列\" ]] && echo 'マッチできない..'"
+- "cat ./secret"
